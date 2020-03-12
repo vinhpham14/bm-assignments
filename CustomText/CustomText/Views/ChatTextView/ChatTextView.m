@@ -125,42 +125,28 @@
     if (range.length == 0) return;
     
     // Caching cursor position
-    NSRange preCursorRange = self.selectedRange;
-    NSInteger preLength = self.attributedText.length;
-    // NSInteger locationCursorInWord = self.selectedRange.location - range.location;
+    NSInteger locationCursorInWord = self.selectedRange.location - range.location;
     
     // Get emoji
     NSAttributedString *word = [self.attributedText attributedSubstringFromRange:range];
-    // NSAttributedString *emojiText = [self convertToEmoji:word locationCursorInWord:&locationCursorInWord];
-    NSAttributedString *emojiText = [self convertToEmoji:word];
+    NSAttributedString *emojiText = [self convertToEmoji:word locationCursorInWord:&locationCursorInWord];
     [self.textStorage replaceCharactersInRange:range withAttributedString:emojiText];
     
     // Update cursor position
-    NSInteger offset = self.attributedText.length - preLength;
-    self.selectedRange = NSMakeRange(preCursorRange.location + offset, preCursorRange.length);
-    // self.selectedRange = NSMakeRange(range.location + locationCursorInWord, self.selectedRange.length);
+    self.selectedRange = NSMakeRange(range.location + locationCursorInWord, self.selectedRange.length);
 }
 
 
 - (NSAttributedString *)revertFromEmoji:(NSAttributedString *)attStr {
-    NSMutableAttributedString *editedStr = [[NSMutableAttributedString alloc] initWithAttributedString:attStr];
-    [editedStr enumerateAttribute:NSAttachmentAttributeName
-                          inRange:NSMakeRange(0, editedStr.length)
-                          options:0
-                       usingBlock:^(id  _Nullable value, NSRange range, BOOL * _Nonnull stop) {
-        if ([value isKindOfClass:EmojiAttachment.class]) {
-            EmojiAttachment *emoji = (EmojiAttachment *)value;
-            [editedStr replaceCharactersInRange:range withString:emoji.rawString];
-            [editedStr removeAttribute:NSAttachmentAttributeName range:range];
-        }
-    }];
-    
-    return editedStr;
+    return [self revertFromEmoji:attStr locationCursorInWord:nil];
 }
 
 
 - (NSAttributedString *)revertFromEmoji:(NSAttributedString *)attStr locationCursorInWord:(NSInteger *)locationCursor {
+    
+    __block NSInteger cursor = locationCursor ? *locationCursor : 0;
     NSMutableAttributedString *editedStr = [[NSMutableAttributedString alloc] initWithAttributedString:attStr];
+    
     [editedStr enumerateAttribute:NSAttachmentAttributeName
                           inRange:NSMakeRange(0, editedStr.length)
                           options:0
@@ -173,11 +159,12 @@
             // Update location cursor in word
             if (range.location + range.length <= *locationCursor) {
                 NSInteger offset = emoji.rawString.length - 1;
-                *locationCursor += offset;
+                cursor += offset;
             }
         }
     }];
     
+    if (locationCursor) *locationCursor = cursor;
     return editedStr;
 }
 
@@ -185,6 +172,7 @@
 - (NSAttributedString *)convertToEmoji:(NSAttributedString *)attStr locationCursorInWord:(NSInteger *)locationCursor {
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithAttributedString:[self revertFromEmoji:attStr locationCursorInWord:locationCursor]];
+    NSInteger cursor = locationCursor ? *locationCursor : 0;
     
     NSString *pattern = @"([:;8bX$][03aozxsdhptBPDQHUG'@><*\\(\\)\\-=|]+)|(/\\-[a-z]+)";
     NSRegularExpression *reg = [NSRegularExpression regularExpressionWithPattern:pattern
@@ -213,51 +201,24 @@
             [text addAttributes:oldAttributes range:NSMakeRange(result.range.location, 1)];
             
             // Update location cursor in word
-            if (*locationCursor > result.range.location + result.range.length - 1) {
+            if (cursor > NSMaxRange(result.range) - 1) {
                 NSInteger offset = 1 - result.range.length;
-                *locationCursor += offset;
+                cursor += offset;
+            } else if (result.range.location <= cursor
+                       && cursor <= NSMaxRange(result.range) - 1) {
+                cursor = result.range.location;
             }
             
         }
     }
     
+    if (locationCursor) *locationCursor = cursor;
     return text;
 }
 
 
 - (NSAttributedString *)convertToEmoji:(NSAttributedString *)attStr {
-    
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithAttributedString:[self revertFromEmoji:attStr]];
-    
-    NSString *pattern = @"([:;8bX$][03aozxsdhptBPDQHUG'@><*\\(\\)\\-=|]+)|(/\\-[a-z]+)";
-    NSRegularExpression *reg = [NSRegularExpression regularExpressionWithPattern:pattern
-                                                                         options:0
-                                                                           error:nil];
-    
-    NSArray *matches = [reg matchesInString:text.string
-                                    options:0
-                                      range:NSMakeRange(0, text.length)];
-    
-    for (NSTextCheckingResult *result in matches.reverseObjectEnumerator) {
-        
-        NSString * word = [text attributedSubstringFromRange:result.range].string;
-        EmojiAttachment *attachment = [[EmojiAttachment alloc] initWithEmojiCode:word];
-        
-        if (attachment) {
-            
-            // Caching old attributes
-            NSDictionary *oldAttributes = [text attributesAtIndex:result.range.location effectiveRange:nil];
-            
-            [attachment alignEmojiWithAttributes:oldAttributes];
-            NSAttributedString *emoji = [NSAttributedString attributedStringWithAttachment:attachment];
-            
-            // Replace and recover attributes
-            [text replaceCharactersInRange:result.range withAttributedString:emoji];
-            [text addAttributes:oldAttributes range:NSMakeRange(result.range.location, 1)];
-        }
-    }
-    
-    return text;
+    return [self convertToEmoji:attStr locationCursorInWord:nil];
 }
 
 @end
