@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[CustomTextView visibleTextRange]:CustomTextView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.text.length">
+            </PersistentString>
+            <PersistentString
+               value = "[self offsetFromPosition:self.beginningOfDocument toPosition:rightBottomPosition]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ChatTextView currentWord:]:ChatTextView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "NSMakeRange(leftRange.location, self.text.length - leftRange.location)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ChatTextView revertFromEmoji:locationCursorInWord:]:ChatTextView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ChatTextView currentWord]:ChatTextView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "NSMakeRange(0, cursorRange.location)">
+            </PersistentString>
+            <PersistentString
+               value = "NSMakeRange(cursorRange.location, self.text.length - cursorRange.location)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[EmojiAttachment alignEmoji:]:EmojiAttachment.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ChatTextView convertToEmoji:]:ChatTextView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ChatTextView convertToEmoji:locationCursorInWord:]:ChatTextView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "word">
+            </PersistentString>
+            <PersistentString
+               value = "*locationCursor">
+            </PersistentString>
+            <PersistentString
+               value = "result.range">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

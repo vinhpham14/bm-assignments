@@ -1,0 +1,690 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D41B90A92415F6B700D9D694 /* EmojiParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B90A82415F6B700D9D694 /* EmojiParser.m */; };
+		D45C446E24123E2100364B4F /* EmojiTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D45C446D24123E2100364B4F /* EmojiTextView.m */; };
+		D4788006241605CA0034F149 /* Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = D4788005241605CA0034F149 /* Emoji.m */; };
+		D478800D241629820034F149 /* EmojiAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = D478800C241629820034F149 /* EmojiAttachment.m */; };
+		D48DCC20241642FA00B11149 /* ReplacementInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D48DCC1F241642FA00B11149 /* ReplacementInfo.m */; };
+		D48DCC232416A5DD00B11149 /* ChatTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D48DCC222416A5DD00B11149 /* ChatTextView.m */; };
+		D4A71B0A240E173E001D2B3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A71B09240E173E001D2B3D /* AppDelegate.m */; };
+		D4A71B0D240E173E001D2B3D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A71B0C240E173E001D2B3D /* SceneDelegate.m */; };
+		D4A71B10240E173E001D2B3D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A71B0F240E173E001D2B3D /* ViewController.m */; };
+		D4A71B13240E173E001D2B3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A71B11240E173E001D2B3D /* Main.storyboard */; };
+		D4A71B15240E173F001D2B3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A71B14240E173F001D2B3D /* Assets.xcassets */; };
+		D4A71B18240E173F001D2B3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A71B16240E173F001D2B3D /* LaunchScreen.storyboard */; };
+		D4A71B1B240E173F001D2B3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A71B1A240E173F001D2B3D /* main.m */; };
+		D4A71B25240E173F001D2B3D /* CustomTextTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A71B24240E173F001D2B3D /* CustomTextTests.m */; };
+		D4A71B30240E173F001D2B3D /* CustomTextUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A71B2F240E173F001D2B3D /* CustomTextUITests.m */; };
+		D4DEC63A240E180300655730 /* CustomTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEC639240E180300655730 /* CustomTextView.m */; };
+		D4EAAF532410F64F00DD53B3 /* DefaultEmoji.spriteatlas in Resources */ = {isa = PBXBuildFile; fileRef = D4EAAF522410F64F00DD53B3 /* DefaultEmoji.spriteatlas */; };
+		D4EAAF562410F71C00DD53B3 /* EmojiItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EAAF552410F71C00DD53B3 /* EmojiItem.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4A71B21240E173F001D2B3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4A71AFD240E173E001D2B3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4A71B04240E173E001D2B3D;
+			remoteInfo = CustomText;
+		};
+		D4A71B2C240E173F001D2B3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4A71AFD240E173E001D2B3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4A71B04240E173E001D2B3D;
+			remoteInfo = CustomText;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D41B90A72415F6B700D9D694 /* EmojiParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiParser.h; sourceTree = "<group>"; };
+		D41B90A82415F6B700D9D694 /* EmojiParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmojiParser.m; sourceTree = "<group>"; };
+		D45C446C24123E2100364B4F /* EmojiTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiTextView.h; sourceTree = "<group>"; };
+		D45C446D24123E2100364B4F /* EmojiTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmojiTextView.m; sourceTree = "<group>"; };
+		D4788004241605CA0034F149 /* Emoji.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
+		D4788005241605CA0034F149 /* Emoji.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Emoji.m; sourceTree = "<group>"; };
+		D478800B241629820034F149 /* EmojiAttachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiAttachment.h; sourceTree = "<group>"; };
+		D478800C241629820034F149 /* EmojiAttachment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmojiAttachment.m; sourceTree = "<group>"; };
+		D48DCC1E241642FA00B11149 /* ReplacementInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplacementInfo.h; sourceTree = "<group>"; };
+		D48DCC1F241642FA00B11149 /* ReplacementInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplacementInfo.m; sourceTree = "<group>"; };
+		D48DCC212416A5DD00B11149 /* ChatTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatTextView.h; sourceTree = "<group>"; };
+		D48DCC222416A5DD00B11149 /* ChatTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatTextView.m; sourceTree = "<group>"; };
+		D4A71B05240E173E001D2B3D /* CustomText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomText.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4A71B08240E173E001D2B3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D4A71B09240E173E001D2B3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D4A71B0B240E173E001D2B3D /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		D4A71B0C240E173E001D2B3D /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		D4A71B0E240E173E001D2B3D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D4A71B0F240E173E001D2B3D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D4A71B12240E173E001D2B3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D4A71B14240E173F001D2B3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4A71B17240E173F001D2B3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D4A71B19240E173F001D2B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4A71B1A240E173F001D2B3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D4A71B20240E173F001D2B3D /* CustomTextTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomTextTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4A71B24240E173F001D2B3D /* CustomTextTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTextTests.m; sourceTree = "<group>"; };
+		D4A71B26240E173F001D2B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4A71B2B240E173F001D2B3D /* CustomTextUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomTextUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4A71B2F240E173F001D2B3D /* CustomTextUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTextUITests.m; sourceTree = "<group>"; };
+		D4A71B31240E173F001D2B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4DEC638240E180300655730 /* CustomTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTextView.h; sourceTree = "<group>"; };
+		D4DEC639240E180300655730 /* CustomTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTextView.m; sourceTree = "<group>"; };
+		D4EAAF522410F64F00DD53B3 /* DefaultEmoji.spriteatlas */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DefaultEmoji.spriteatlas; sourceTree = "<group>"; };
+		D4EAAF542410F71C00DD53B3 /* EmojiItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiItem.h; sourceTree = "<group>"; };
+		D4EAAF552410F71C00DD53B3 /* EmojiItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmojiItem.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4A71B02240E173E001D2B3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4A71B1D240E173F001D2B3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4A71B28240E173F001D2B3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D45C446B24123DFC00364B4F /* ChatTextView */ = {
+			isa = PBXGroup;
+			children = (
+				D45C446C24123E2100364B4F /* EmojiTextView.h */,
+				D45C446D24123E2100364B4F /* EmojiTextView.m */,
+				D48DCC212416A5DD00B11149 /* ChatTextView.h */,
+				D48DCC222416A5DD00B11149 /* ChatTextView.m */,
+			);
+			path = ChatTextView;
+			sourceTree = "<group>";
+		};
+		D4A71AFC240E173E001D2B3D = {
+			isa = PBXGroup;
+			children = (
+				D4A71B07240E173E001D2B3D /* CustomText */,
+				D4A71B23240E173F001D2B3D /* CustomTextTests */,
+				D4A71B2E240E173F001D2B3D /* CustomTextUITests */,
+				D4A71B06240E173E001D2B3D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4A71B06240E173E001D2B3D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4A71B05240E173E001D2B3D /* CustomText.app */,
+				D4A71B20240E173F001D2B3D /* CustomTextTests.xctest */,
+				D4A71B2B240E173F001D2B3D /* CustomTextUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4A71B07240E173E001D2B3D /* CustomText */ = {
+			isa = PBXGroup;
+			children = (
+				D4DEC637240E179500655730 /* Helpers */,
+				D4DEC636240E178F00655730 /* Models */,
+				D4DEC635240E178700655730 /* ViewControllers */,
+				D4DEC634240E177D00655730 /* Views */,
+				D4A71B14240E173F001D2B3D /* Assets.xcassets */,
+				D4EAAF522410F64F00DD53B3 /* DefaultEmoji.spriteatlas */,
+				D4A71B19240E173F001D2B3D /* Info.plist */,
+			);
+			path = CustomText;
+			sourceTree = "<group>";
+		};
+		D4A71B23240E173F001D2B3D /* CustomTextTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4A71B24240E173F001D2B3D /* CustomTextTests.m */,
+				D4A71B26240E173F001D2B3D /* Info.plist */,
+			);
+			path = CustomTextTests;
+			sourceTree = "<group>";
+		};
+		D4A71B2E240E173F001D2B3D /* CustomTextUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D4A71B2F240E173F001D2B3D /* CustomTextUITests.m */,
+				D4A71B31240E173F001D2B3D /* Info.plist */,
+			);
+			path = CustomTextUITests;
+			sourceTree = "<group>";
+		};
+		D4DEC634240E177D00655730 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D45C446B24123DFC00364B4F /* ChatTextView */,
+				D4DEC63B240E180A00655730 /* CustomTextView */,
+				D4A71B11240E173E001D2B3D /* Main.storyboard */,
+				D4A71B16240E173F001D2B3D /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D4DEC635240E178700655730 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4A71B0E240E173E001D2B3D /* ViewController.h */,
+				D4A71B0F240E173E001D2B3D /* ViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D4DEC636240E178F00655730 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4EAAF542410F71C00DD53B3 /* EmojiItem.h */,
+				D4EAAF552410F71C00DD53B3 /* EmojiItem.m */,
+				D41B90A72415F6B700D9D694 /* EmojiParser.h */,
+				D41B90A82415F6B700D9D694 /* EmojiParser.m */,
+				D4788004241605CA0034F149 /* Emoji.h */,
+				D4788005241605CA0034F149 /* Emoji.m */,
+				D478800B241629820034F149 /* EmojiAttachment.h */,
+				D478800C241629820034F149 /* EmojiAttachment.m */,
+				D48DCC1E241642FA00B11149 /* ReplacementInfo.h */,
+				D48DCC1F241642FA00B11149 /* ReplacementInfo.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D4DEC637240E179500655730 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D4A71B1A240E173F001D2B3D /* main.m */,
+				D4A71B08240E173E001D2B3D /* AppDelegate.h */,
+				D4A71B09240E173E001D2B3D /* AppDelegate.m */,
+				D4A71B0B240E173E001D2B3D /* SceneDelegate.h */,
+				D4A71B0C240E173E001D2B3D /* SceneDelegate.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D4DEC63B240E180A00655730 /* CustomTextView */ = {
+			isa = PBXGroup;
+			children = (
+				D4DEC638240E180300655730 /* CustomTextView.h */,
+				D4DEC639240E180300655730 /* CustomTextView.m */,
+			);
+			path = CustomTextView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4A71B04240E173E001D2B3D /* CustomText */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4A71B34240E173F001D2B3D /* Build configuration list for PBXNativeTarget "CustomText" */;
+			buildPhases = (
+				D4A71B01240E173E001D2B3D /* Sources */,
+				D4A71B02240E173E001D2B3D /* Frameworks */,
+				D4A71B03240E173E001D2B3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CustomText;
+			productName = CustomText;
+			productReference = D4A71B05240E173E001D2B3D /* CustomText.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4A71B1F240E173F001D2B3D /* CustomTextTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4A71B37240E173F001D2B3D /* Build configuration list for PBXNativeTarget "CustomTextTests" */;
+			buildPhases = (
+				D4A71B1C240E173F001D2B3D /* Sources */,
+				D4A71B1D240E173F001D2B3D /* Frameworks */,
+				D4A71B1E240E173F001D2B3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4A71B22240E173F001D2B3D /* PBXTargetDependency */,
+			);
+			name = CustomTextTests;
+			productName = CustomTextTests;
+			productReference = D4A71B20240E173F001D2B3D /* CustomTextTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D4A71B2A240E173F001D2B3D /* CustomTextUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4A71B3A240E173F001D2B3D /* Build configuration list for PBXNativeTarget "CustomTextUITests" */;
+			buildPhases = (
+				D4A71B27240E173F001D2B3D /* Sources */,
+				D4A71B28240E173F001D2B3D /* Frameworks */,
+				D4A71B29240E173F001D2B3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4A71B2D240E173F001D2B3D /* PBXTargetDependency */,
+			);
+			name = CustomTextUITests;
+			productName = CustomTextUITests;
+			productReference = D4A71B2B240E173F001D2B3D /* CustomTextUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4A71AFD240E173E001D2B3D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = LAP12230;
+				TargetAttributes = {
+					D4A71B04240E173E001D2B3D = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					D4A71B1F240E173F001D2B3D = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = D4A71B04240E173E001D2B3D;
+					};
+					D4A71B2A240E173F001D2B3D = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = D4A71B04240E173E001D2B3D;
+					};
+				};
+			};
+			buildConfigurationList = D4A71B00240E173E001D2B3D /* Build configuration list for PBXProject "CustomText" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4A71AFC240E173E001D2B3D;
+			productRefGroup = D4A71B06240E173E001D2B3D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4A71B04240E173E001D2B3D /* CustomText */,
+				D4A71B1F240E173F001D2B3D /* CustomTextTests */,
+				D4A71B2A240E173F001D2B3D /* CustomTextUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4A71B03240E173E001D2B3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4A71B18240E173F001D2B3D /* LaunchScreen.storyboard in Resources */,
+				D4A71B15240E173F001D2B3D /* Assets.xcassets in Resources */,
+				D4A71B13240E173E001D2B3D /* Main.storyboard in Resources */,
+				D4EAAF532410F64F00DD53B3 /* DefaultEmoji.spriteatlas in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4A71B1E240E173F001D2B3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4A71B29240E173F001D2B3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4A71B01240E173E001D2B3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4788006241605CA0034F149 /* Emoji.m in Sources */,
+				D48DCC232416A5DD00B11149 /* ChatTextView.m in Sources */,
+				D4DEC63A240E180300655730 /* CustomTextView.m in Sources */,
+				D4A71B10240E173E001D2B3D /* ViewController.m in Sources */,
+				D4A71B0A240E173E001D2B3D /* AppDelegate.m in Sources */,
+				D4EAAF562410F71C00DD53B3 /* EmojiItem.m in Sources */,
+				D41B90A92415F6B700D9D694 /* EmojiParser.m in Sources */,
+				D4A71B1B240E173F001D2B3D /* main.m in Sources */,
+				D45C446E24123E2100364B4F /* EmojiTextView.m in Sources */,
+				D4A71B0D240E173E001D2B3D /* SceneDelegate.m in Sources */,
+				D48DCC20241642FA00B11149 /* ReplacementInfo.m in Sources */,
+				D478800D241629820034F149 /* EmojiAttachment.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4A71B1C240E173F001D2B3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4A71B25240E173F001D2B3D /* CustomTextTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4A71B27240E173F001D2B3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4A71B30240E173F001D2B3D /* CustomTextUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4A71B22240E173F001D2B3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4A71B04240E173E001D2B3D /* CustomText */;
+			targetProxy = D4A71B21240E173F001D2B3D /* PBXContainerItemProxy */;
+		};
+		D4A71B2D240E173F001D2B3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4A71B04240E173E001D2B3D /* CustomText */;
+			targetProxy = D4A71B2C240E173F001D2B3D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D4A71B11240E173E001D2B3D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4A71B12240E173E001D2B3D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D4A71B16240E173F001D2B3D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4A71B17240E173F001D2B3D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4A71B32240E173F001D2B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D4A71B33240E173F001D2B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4A71B35240E173F001D2B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QV73P46HRP;
+				INFOPLIST_FILE = CustomText/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vinhpham.CustomText;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4A71B36240E173F001D2B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QV73P46HRP;
+				INFOPLIST_FILE = CustomText/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vinhpham.CustomText;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D4A71B38240E173F001D2B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QV73P46HRP;
+				INFOPLIST_FILE = CustomTextTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vinhpham.CustomTextTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomText.app/CustomText";
+			};
+			name = Debug;
+		};
+		D4A71B39240E173F001D2B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QV73P46HRP;
+				INFOPLIST_FILE = CustomTextTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vinhpham.CustomTextTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomText.app/CustomText";
+			};
+			name = Release;
+		};
+		D4A71B3B240E173F001D2B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QV73P46HRP;
+				INFOPLIST_FILE = CustomTextUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vinhpham.CustomTextUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CustomText;
+			};
+			name = Debug;
+		};
+		D4A71B3C240E173F001D2B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QV73P46HRP;
+				INFOPLIST_FILE = CustomTextUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vinhpham.CustomTextUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CustomText;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4A71B00240E173E001D2B3D /* Build configuration list for PBXProject "CustomText" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4A71B32240E173F001D2B3D /* Debug */,
+				D4A71B33240E173F001D2B3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4A71B34240E173F001D2B3D /* Build configuration list for PBXNativeTarget "CustomText" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4A71B35240E173F001D2B3D /* Debug */,
+				D4A71B36240E173F001D2B3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4A71B37240E173F001D2B3D /* Build configuration list for PBXNativeTarget "CustomTextTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4A71B38240E173F001D2B3D /* Debug */,
+				D4A71B39240E173F001D2B3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4A71B3A240E173F001D2B3D /* Build configuration list for PBXNativeTarget "CustomTextUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4A71B3B240E173F001D2B3D /* Debug */,
+				D4A71B3C240E173F001D2B3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4A71AFD240E173E001D2B3D /* Project object */;
+}
