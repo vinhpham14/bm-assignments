@@ -11,6 +11,8 @@
 @interface EmojiParser ()
 
 @property (nonatomic, strong) EmojiSet *emojiSet;
+@property (nonatomic, strong) NSString *usingRegexPattern;
+@property (nonatomic, strong) NSDictionary *usingEmojiDictionary;
 
 @end
 
@@ -19,27 +21,66 @@
 
 #pragma mark - Inititalize
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        _emojiSets = NSMutableArray.new;
-    }
-    return self;
-}
 
 
-#pragma mark Custom Setters, Getters 
+#pragma mark Custom Setters, Getters
 
-- (NSString *)currentSetName {
-    return self.currentEmojiSet.name;
-}
-
-- (EmojiSet *)currentEmojiSet {
-    NSUInteger count = self.emojiSets.count;
-    NSUInteger index = self.currentEmojiIndex;
+- (NSString *)usingRegexPattern {
     
-    if (count == 0 || index > count - 1) return nil;
-    return self.emojiSets[index];
+    if (!self.dataSource) return nil;
+    if (_usingRegexPattern || !self.dataSource) return _usingRegexPattern;
+    
+    NSInteger numberOfEmojiSets = [self.dataSource numberOfEmojiSetsInParser:self];
+    NSMutableArray *patterns = NSMutableArray.new;
+    
+    for (int i = 0; i < numberOfEmojiSets; i++) {
+        
+        if ([self.dataSource emojiParser:self shouldIncludeEmojiSetAtIndex:i]) {
+            
+            EmojiSet *set = [self.dataSource emojiParser:self emojiSetForIndex:i];
+            [patterns addObject:set.regexPattern];
+            
+        }
+    }
+    
+    return [patterns componentsJoinedByString:@"|"];
+}
+
+
+- (NSDictionary *)usingEmojiDictionary {
+    
+    if (!self.dataSource) return nil;
+    if (_usingEmojiDictionary) return _usingEmojiDictionary;
+    
+    NSInteger numberOfEmojiSets = [self.dataSource numberOfEmojiSetsInParser:self];
+    NSMutableDictionary *resultDict = NSMutableDictionary.new;
+    
+    for (int i = 0; i < numberOfEmojiSets; i++) {
+        
+        if ([self.dataSource emojiParser:self shouldIncludeEmojiSetAtIndex:i]) {
+            
+            EmojiSet *set = [self.dataSource emojiParser:self emojiSetForIndex:i];
+            
+            for (NSString *key in set.emojiDictionary.allKeys) {
+                if (!resultDict[key]) {
+                    resultDict[key] = set.emojiDictionary[key];
+                }
+            }
+            
+        }
+        
+    }
+    
+    _usingEmojiDictionary = [NSDictionary dictionaryWithDictionary:resultDict];
+    return _usingEmojiDictionary;
+}
+
+
+#pragma mark - Public Methods
+
+- (void)reloadParsingDataSource {
+    self.usingEmojiDictionary = nil;
+    self.usingRegexPattern = nil;
 }
 
 
@@ -88,14 +129,11 @@
 
 - (NSAttributedString *)convertToEmoji:(NSAttributedString *)attStr locationCursorInWord:(NSInteger *)locationCursor {
     
-    // Validate
-    if (!self.currentEmojiSet) return attStr;
-    
     NSAttributedString *stringWithoutEmoji = [self revertFromEmoji:attStr locationCursorInString:locationCursor];
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithAttributedString:stringWithoutEmoji];
     NSInteger cursor = locationCursor ? *locationCursor : 0;
     
-    NSString *pattern = self.currentEmojiSet.regexPattern;
+    NSString *pattern = self.usingRegexPattern;
     NSRegularExpression *reg = [NSRegularExpression regularExpressionWithPattern:pattern
                                                                          options:0
                                                                            error:nil];
@@ -154,10 +192,10 @@
 
 - (EmojiAttachment *) generateEmojiAttachment:(NSString *)code {
     
-    NSDictionary *emojiDictionary = self.currentEmojiSet.emojiDictionary;
+    NSDictionary *emojiDictionary = self.usingEmojiDictionary;
     
     NSString *imageName = emojiDictionary[code];
-    UIImage *image = [UIImage imageNamed:imageName];
+    UIImage *image = imageName ? [UIImage imageNamed:imageName] : nil;
     
     EmojiAttachment *attachment;
     
@@ -167,5 +205,6 @@
     
     return attachment;
 }
+
 
 @end

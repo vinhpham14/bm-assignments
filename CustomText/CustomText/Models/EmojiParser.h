@@ -14,28 +14,42 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol EmojiParserDataSource;
+
 @interface EmojiParser : NSObject
 
-@property (nonatomic, strong) NSMutableArray<EmojiSet *> *emojiSets;
-
-@property (nonatomic, readonly) EmojiSet *currentEmojiSet;
-@property (nonatomic, readonly) NSString *currentSetName;
-@property (nonatomic, assign) NSUInteger currentEmojiIndex;
+@property (nonatomic, weak) id<EmojiParserDataSource> dataSource;
 
 
-#pragma mark - Convert
+#pragma mark - Revert
 
 - (NSAttributedString *)revertFromEmoji:(NSAttributedString *)attStr;
 - (NSAttributedString *)revertFromEmoji:(NSAttributedString *)attStr locationCursorInString:(NSInteger *)locationCursor;
 
 
-#pragma mark - Revert
+#pragma mark - Convert
 
 - (NSAttributedString *)convertToEmoji:(NSAttributedString *)attStr;
 - (NSAttributedString *)convertToEmoji:(NSAttributedString *)attStr locationCursorInWord:(NSInteger *)locationCursor;
 
 
+#pragma mark - DataSource
+
+- (void)reloadParsingDataSource;
+
+@end
+
+
+@protocol EmojiParserDataSource <NSObject>
+
+@required
+
+- (NSInteger)numberOfEmojiSetsInParser:(EmojiParser *)parser;
+
+- (BOOL)emojiParser:(EmojiParser *)parser shouldIncludeEmojiSetAtIndex:(NSInteger)index;
+
+- (EmojiSet *)emojiParser:(EmojiParser *)parser emojiSetForIndex:(NSInteger)index;
+
 @end
 
 NS_ASSUME_NONNULL_END
-

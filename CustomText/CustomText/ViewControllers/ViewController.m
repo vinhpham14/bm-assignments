@@ -7,11 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "ChatTextView.h"
 #import <UIKit/UIKit.h>
 
 @interface ViewController ()
+
 @property (weak, nonatomic) IBOutlet ChatTextView *textView;
+@property (strong, nonatomic) NSArray<EmojiSet *> *emojiSets;
 
 @end
 
@@ -22,14 +23,40 @@
     self.textView.placeholder = @"Placeholder";
     self.textView.placeholderColor = UIColor.lightGrayColor;
     self.textView.font = [UIFont systemFontOfSize:30];
+    self.textView.dataSource = self;
     
-    EmojiSet *emojiSet = [[EmojiSet alloc] initWithName:@"default"
-                                             dictionary:[self emojiDictionary]
-                                           regexPattern:@"([:;8bX$][03aozxsdhptBPDQHUG'@><*\\(\\)\\-=|]+)|(/\\-[a-z]+)"];
-    
-    [self.textView addEmojiSet:emojiSet];
-    [self.textView setEmojiSetIndex:0];
+    self.emojiSets = [self loadSets];
 }
+
+
+- (NSArray *)loadSets {
+    
+    EmojiSet *set1 = [[EmojiSet alloc] initWithName:@"Default"
+                                         dictionary:[self emojiDictionary]
+                                       regexPattern:@"([:;8bX$][03aozxsdhptBPDQHUG'@><*\\(\\)\\-=|]+)"];
+    
+    EmojiSet *set2 = [[EmojiSet alloc] initWithName:@"Slash Collection"
+                                         dictionary:[self slashEmojiDictionary]
+                                       regexPattern:@"(/\\-[a-z]+)"];
+    
+    return @[set1, set2];
+}
+
+
+#pragma mark - EmojiParserDataSource
+
+- (NSInteger)numberOfEmojiSetsInParser:(nonnull EmojiParser *)parser {
+    return self.emojiSets.count;
+}
+
+- (nonnull EmojiSet *)emojiParser:(nonnull EmojiParser *)parser emojiSetForIndex:(NSInteger)index {
+    return self.emojiSets[index];
+}
+
+- (BOOL)emojiParser:(nonnull EmojiParser *)parser shouldIncludeEmojiSetAtIndex:(NSInteger)index {
+    return true;
+}
+
 
 - (NSDictionary<NSString *, NSString *> *)emojiDictionary {
     return @{
@@ -86,6 +113,11 @@
         @"$x)": @"51",
         @"8oD": @"52",
         @"$xD": @"53",
+    };
+}
+
+- (NSDictionary *)slashEmojiDictionary {
+    return @{
         @"/-shit": @"54",
         @"/-ghost": @"55",
         @"/-kiss": @"56",
@@ -123,6 +155,5 @@
         @"/-pray": @"88",
     };
 }
-
 
 @end

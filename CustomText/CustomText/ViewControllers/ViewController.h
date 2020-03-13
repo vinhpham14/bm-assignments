@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChatTextView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<EmojiParserDataSource>
 
 
 @end

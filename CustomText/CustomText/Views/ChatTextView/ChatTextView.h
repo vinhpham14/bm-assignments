@@ -15,8 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ChatTextView : PlaceholderTextView
 
-- (void)addEmojiSet:(EmojiSet *)emojiSet;
-- (void)setEmojiSetIndex:(NSUInteger)index;
+@property (nonatomic, weak) id<EmojiParserDataSource> dataSource;
 
 @end
 

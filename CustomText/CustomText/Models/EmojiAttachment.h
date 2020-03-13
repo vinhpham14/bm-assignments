@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithCode:(NSString *)code image:(UIImage *)image;
 - (void)alignEmojiWithAttributes:(NSDictionary *)attributes;
 
-
 + (instancetype)attachmentWithCode:(NSString *)code image:(UIImage *)image;
 
 @end

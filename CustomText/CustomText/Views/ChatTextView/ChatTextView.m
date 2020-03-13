@@ -17,11 +17,41 @@
 
 @implementation ChatTextView
 
+#pragma mark - Initialization
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _emojiParser = EmojiParser.new;
+    }
+    return self;
+}
+
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        _emojiParser = EmojiParser.new;
+    }
+    return self;
+}
+
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        _emojiParser = EmojiParser.new;
+    }
+    return self;
+}
+
 #pragma mark - Emoji Parser
 
-- (EmojiParser *)emojiParser {
-    if (!_emojiParser) _emojiParser = [[EmojiParser alloc] init];
-    return _emojiParser;
+- (void)setDataSource:(id<EmojiParserDataSource>)dataSource {
+    _dataSource = dataSource;
+    self.emojiParser.dataSource = dataSource;
 }
 
 
@@ -77,17 +107,6 @@
     // Update cursor
     self.selectedRange = NSMakeRange(self.selectedRange.location, self.selectedRange.length);
     [self updateTextToEmoji];
-}
-
-#pragma mark - Public Methods
-
-- (void)addEmojiSet:(EmojiSet *)emojiSet {
-    [self.emojiParser.emojiSets addObject:emojiSet];
-}
-
-
-- (void)setEmojiSetIndex:(NSUInteger)index {
-    self.emojiParser.currentEmojiIndex = index;
 }
 
 
