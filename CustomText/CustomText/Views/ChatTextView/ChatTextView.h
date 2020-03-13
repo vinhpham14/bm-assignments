@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "PlaceholderTextView.h"
+#import "EmojiParser.h"
+#import "EmojiAttachment.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ChatTextView : PlaceholderTextView
+
+- (void)addEmojiSet:(EmojiSet *)emojiSet;
+- (void)setEmojiSetIndex:(NSUInteger)index;
 
 @end
 

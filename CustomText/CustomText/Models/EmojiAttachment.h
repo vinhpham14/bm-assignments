@@ -14,9 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *rawString;
 
-- (instancetype)initWithEmojiCode:(NSString *)code;
-
+- (instancetype)initWithCode:(NSString *)code image:(UIImage *)image;
 - (void)alignEmojiWithAttributes:(NSDictionary *)attributes;
+
+
++ (instancetype)attachmentWithCode:(NSString *)code image:(UIImage *)image;
 
 @end
 

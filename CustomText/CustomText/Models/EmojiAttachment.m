@@ -12,22 +12,23 @@
 
 #pragma mark - Initializtions
 
-- (instancetype)initWithEmojiCode:(NSString *)code {
-    self = [self init];
+
+- (instancetype)initWithCode:(NSString *)code image:(UIImage *)image {
+    self = [super init];
     
     if (self) {
-        
-        NSString *imageName = [self.class emojiDictionary][code];
-        
-        if (imageName) {
-            self.image = [UIImage imageNamed:imageName];
-            _rawString = code;
-        } else {
-            return nil;
-        }
+        _rawString = code;
+        self.image = image;
     }
     
     return self;
+}
+
+
+#pragma mark - Convenience Init
+
++ (instancetype)attachmentWithCode:(NSString *)code image:(UIImage *)image {
+    return [[self alloc] initWithCode:code image:image];
 }
 
 
