@@ -27,17 +27,40 @@
 
 - (void)paste:(id)sender {
     
-    NSDictionary *cachedAttributes = self.typingAttributes;
-    NSString *parsingText = UIPasteboard.generalPasteboard.string;
+    // Caching attributes
+    NSMutableDictionary *cachedAttributes = self.typingAttributes.mutableCopy;
     NSInteger preLocation = self.selectedRange.location;
     
-    [self.textStorage replaceCharactersInRange:self.selectedRange withString:parsingText];
-    [self.textStorage addAttributes:cachedAttributes range:NSMakeRange(preLocation, parsingText.length)];
+    NSAttributedString *rawString = [[NSAttributedString alloc] initWithString:UIPasteboard.generalPasteboard.string
+                                                                    attributes:cachedAttributes];
+    NSMutableAttributedString *parsingText = [self convertToEmoji:rawString].mutableCopy;
     
+    // Update text
+    [self.textStorage replaceCharactersInRange:self.selectedRange withAttributedString:parsingText];
     self.selectedRange = NSMakeRange(preLocation + parsingText.length, 0);
     
     [[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:self];
-    [self updateTextToEmoji];
+}
+
+
+- (void)copy:(id)sender {
+
+    if (self.selectedRange.length == 0) return;
+
+    NSAttributedString *targetString = [self.attributedText attributedSubstringFromRange:self.selectedRange];
+    NSString *rawString = [self revertFromEmoji:targetString].string;
+    
+    UIPasteboard.generalPasteboard.string = rawString;
+}
+
+
+- (void)cut:(id)sender {
+    
+    [self copy:sender];
+    [self.textStorage replaceCharactersInRange:self.selectedRange withString:@""];
+    
+    // Update cursor
+    self.selectedRange = NSMakeRange(self.selectedRange.location, self.selectedRange.length);
 }
 
 
@@ -77,7 +100,7 @@
     NSRange cursorRange = self.selectedRange;
     
     NSInteger left = cursorRange.location - 1;
-    NSInteger right = cursorRange.location;
+    NSInteger right = NSMaxRange(self.selectedRange);
     
     BOOL continueLeft = true;
     BOOL continueRight = true;
@@ -157,7 +180,7 @@
             [editedStr removeAttribute:NSAttachmentAttributeName range:range];
             
             // Update location cursor in word
-            if (range.location + range.length <= *locationCursor) {
+            if (range.location + range.length <= cursor) {
                 NSInteger offset = emoji.rawString.length - 1;
                 cursor += offset;
             }
@@ -201,12 +224,24 @@
             [text addAttributes:oldAttributes range:NSMakeRange(result.range.location, 1)];
             
             // Update location cursor in word
+            // Case: cursor not inside the replacing word.
             if (cursor > NSMaxRange(result.range) - 1) {
                 NSInteger offset = 1 - result.range.length;
                 cursor += offset;
-            } else if (result.range.location <= cursor
+            }
+            
+            // Case: cursor inside or next to the replacing word.
+            else if (result.range.location <= cursor
                        && cursor <= NSMaxRange(result.range) - 1) {
-                cursor = result.range.location;
+                
+                // Case: before the replacing word.
+                if (cursor == result.range.location) {
+                    cursor = result.range.location;
+                }
+                // Case: inside
+                else {
+                    cursor = result.range.location + 1;
+                }
             }
             
         }
