@@ -6,16 +6,16 @@
 //  Copyright © 2020 LAP12230. All rights reserved.
 //
 
-#import "CustomTextView.h"
+#import "PlaceholderTextView.h"
 
-@interface CustomTextView ()
+@interface PlaceholderTextView ()
 
 @property (nonatomic, strong) UITextView *placeholderTextView;
 
 @end
 
 
-@implementation CustomTextView
+@implementation PlaceholderTextView
 
 #pragma mark - CUSTOM SETTERS, GETTERS
 

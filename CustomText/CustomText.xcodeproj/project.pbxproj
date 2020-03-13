@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D41B90A92415F6B700D9D694 /* EmojiParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B90A82415F6B700D9D694 /* EmojiParser.m */; };
-		D45C446E24123E2100364B4F /* EmojiTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D45C446D24123E2100364B4F /* EmojiTextView.m */; };
-		D4788006241605CA0034F149 /* Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = D4788005241605CA0034F149 /* Emoji.m */; };
 		D478800D241629820034F149 /* EmojiAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = D478800C241629820034F149 /* EmojiAttachment.m */; };
-		D48DCC20241642FA00B11149 /* ReplacementInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D48DCC1F241642FA00B11149 /* ReplacementInfo.m */; };
 		D48DCC232416A5DD00B11149 /* ChatTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D48DCC222416A5DD00B11149 /* ChatTextView.m */; };
 		D4A71B0A240E173E001D2B3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A71B09240E173E001D2B3D /* AppDelegate.m */; };
 		D4A71B0D240E173E001D2B3D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A71B0C240E173E001D2B3D /* SceneDelegate.m */; };
@@ -22,9 +18,8 @@
 		D4A71B1B240E173F001D2B3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A71B1A240E173F001D2B3D /* main.m */; };
 		D4A71B25240E173F001D2B3D /* CustomTextTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A71B24240E173F001D2B3D /* CustomTextTests.m */; };
 		D4A71B30240E173F001D2B3D /* CustomTextUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A71B2F240E173F001D2B3D /* CustomTextUITests.m */; };
-		D4DEC63A240E180300655730 /* CustomTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEC639240E180300655730 /* CustomTextView.m */; };
+		D4DEC63A240E180300655730 /* PlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEC639240E180300655730 /* PlaceholderTextView.m */; };
 		D4EAAF532410F64F00DD53B3 /* DefaultEmoji.spriteatlas in Resources */ = {isa = PBXBuildFile; fileRef = D4EAAF522410F64F00DD53B3 /* DefaultEmoji.spriteatlas */; };
-		D4EAAF562410F71C00DD53B3 /* EmojiItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EAAF552410F71C00DD53B3 /* EmojiItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,16 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D41B90A72415F6B700D9D694 /* EmojiParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiParser.h; sourceTree = "<group>"; };
-		D41B90A82415F6B700D9D694 /* EmojiParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmojiParser.m; sourceTree = "<group>"; };
-		D45C446C24123E2100364B4F /* EmojiTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiTextView.h; sourceTree = "<group>"; };
-		D45C446D24123E2100364B4F /* EmojiTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmojiTextView.m; sourceTree = "<group>"; };
-		D4788004241605CA0034F149 /* Emoji.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
-		D4788005241605CA0034F149 /* Emoji.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Emoji.m; sourceTree = "<group>"; };
 		D478800B241629820034F149 /* EmojiAttachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiAttachment.h; sourceTree = "<group>"; };
 		D478800C241629820034F149 /* EmojiAttachment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmojiAttachment.m; sourceTree = "<group>"; };
-		D48DCC1E241642FA00B11149 /* ReplacementInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplacementInfo.h; sourceTree = "<group>"; };
-		D48DCC1F241642FA00B11149 /* ReplacementInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplacementInfo.m; sourceTree = "<group>"; };
 		D48DCC212416A5DD00B11149 /* ChatTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatTextView.h; sourceTree = "<group>"; };
 		D48DCC222416A5DD00B11149 /* ChatTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatTextView.m; sourceTree = "<group>"; };
 		D4A71B05240E173E001D2B3D /* CustomText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomText.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,11 +62,9 @@
 		D4A71B2B240E173F001D2B3D /* CustomTextUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomTextUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A71B2F240E173F001D2B3D /* CustomTextUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTextUITests.m; sourceTree = "<group>"; };
 		D4A71B31240E173F001D2B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4DEC638240E180300655730 /* CustomTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTextView.h; sourceTree = "<group>"; };
-		D4DEC639240E180300655730 /* CustomTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTextView.m; sourceTree = "<group>"; };
+		D4DEC638240E180300655730 /* PlaceholderTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceholderTextView.h; sourceTree = "<group>"; };
+		D4DEC639240E180300655730 /* PlaceholderTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceholderTextView.m; sourceTree = "<group>"; };
 		D4EAAF522410F64F00DD53B3 /* DefaultEmoji.spriteatlas */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DefaultEmoji.spriteatlas; sourceTree = "<group>"; };
-		D4EAAF542410F71C00DD53B3 /* EmojiItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiItem.h; sourceTree = "<group>"; };
-		D4EAAF552410F71C00DD53B3 /* EmojiItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmojiItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +95,6 @@
 		D45C446B24123DFC00364B4F /* ChatTextView */ = {
 			isa = PBXGroup;
 			children = (
-				D45C446C24123E2100364B4F /* EmojiTextView.h */,
-				D45C446D24123E2100364B4F /* EmojiTextView.m */,
 				D48DCC212416A5DD00B11149 /* ChatTextView.h */,
 				D48DCC222416A5DD00B11149 /* ChatTextView.m */,
 			);
@@ -174,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				D45C446B24123DFC00364B4F /* ChatTextView */,
-				D4DEC63B240E180A00655730 /* CustomTextView */,
+				D4DEC63B240E180A00655730 /* PlaceholderTextView */,
 				D4A71B11240E173E001D2B3D /* Main.storyboard */,
 				D4A71B16240E173F001D2B3D /* LaunchScreen.storyboard */,
 			);
@@ -193,16 +176,8 @@
 		D4DEC636240E178F00655730 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D4EAAF542410F71C00DD53B3 /* EmojiItem.h */,
-				D4EAAF552410F71C00DD53B3 /* EmojiItem.m */,
-				D41B90A72415F6B700D9D694 /* EmojiParser.h */,
-				D41B90A82415F6B700D9D694 /* EmojiParser.m */,
-				D4788004241605CA0034F149 /* Emoji.h */,
-				D4788005241605CA0034F149 /* Emoji.m */,
 				D478800B241629820034F149 /* EmojiAttachment.h */,
 				D478800C241629820034F149 /* EmojiAttachment.m */,
-				D48DCC1E241642FA00B11149 /* ReplacementInfo.h */,
-				D48DCC1F241642FA00B11149 /* ReplacementInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,13 +194,13 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		D4DEC63B240E180A00655730 /* CustomTextView */ = {
+		D4DEC63B240E180A00655730 /* PlaceholderTextView */ = {
 			isa = PBXGroup;
 			children = (
-				D4DEC638240E180300655730 /* CustomTextView.h */,
-				D4DEC639240E180300655730 /* CustomTextView.m */,
+				D4DEC638240E180300655730 /* PlaceholderTextView.h */,
+				D4DEC639240E180300655730 /* PlaceholderTextView.m */,
 			);
-			path = CustomTextView;
+			path = PlaceholderTextView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,17 +334,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4788006241605CA0034F149 /* Emoji.m in Sources */,
 				D48DCC232416A5DD00B11149 /* ChatTextView.m in Sources */,
-				D4DEC63A240E180300655730 /* CustomTextView.m in Sources */,
+				D4DEC63A240E180300655730 /* PlaceholderTextView.m in Sources */,
 				D4A71B10240E173E001D2B3D /* ViewController.m in Sources */,
 				D4A71B0A240E173E001D2B3D /* AppDelegate.m in Sources */,
-				D4EAAF562410F71C00DD53B3 /* EmojiItem.m in Sources */,
-				D41B90A92415F6B700D9D694 /* EmojiParser.m in Sources */,
 				D4A71B1B240E173F001D2B3D /* main.m in Sources */,
-				D45C446E24123E2100364B4F /* EmojiTextView.m in Sources */,
 				D4A71B0D240E173E001D2B3D /* SceneDelegate.m in Sources */,
-				D48DCC20241642FA00B11149 /* ReplacementInfo.m in Sources */,
 				D478800D241629820034F149 /* EmojiAttachment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
