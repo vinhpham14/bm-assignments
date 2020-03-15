@@ -28,7 +28,7 @@
 - (NSString *)usingRegexPattern {
     
     if (!self.dataSource) return nil;
-    if (_usingRegexPattern || !self.dataSource) return _usingRegexPattern;
+    if (_usingRegexPattern) return _usingRegexPattern;
     
     NSInteger numberOfEmojiSets = [self.dataSource numberOfEmojiSetsInParser:self];
     NSMutableArray *patterns = NSMutableArray.new;
