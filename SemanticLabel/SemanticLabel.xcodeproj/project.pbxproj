@@ -16,6 +16,9 @@
 		D45A126C241E4EED00A8EC5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D45A126B241E4EED00A8EC5B /* main.m */; };
 		D45A1276241E4EED00A8EC5B /* SemanticLabelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D45A1275241E4EED00A8EC5B /* SemanticLabelTests.m */; };
 		D45A1281241E4EED00A8EC5B /* SemanticLabelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D45A1280241E4EED00A8EC5B /* SemanticLabelUITests.m */; };
+		D4C1D406241E56D30038E922 /* SemanticLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C1D405241E56D30038E922 /* SemanticLabel.m */; };
+		D4F0BB162422116F00C80504 /* NSString+FullWordTruncated.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F0BB152422116F00C80504 /* NSString+FullWordTruncated.m */; };
+		D4F0BB1A2422231500C80504 /* NSAttributedString+FullWordTruncated.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F0BB192422231500C80504 /* NSAttributedString+FullWordTruncated.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,12 @@
 		D45A127C241E4EED00A8EC5B /* SemanticLabelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SemanticLabelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45A1280241E4EED00A8EC5B /* SemanticLabelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SemanticLabelUITests.m; sourceTree = "<group>"; };
 		D45A1282241E4EED00A8EC5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4C1D404241E56D30038E922 /* SemanticLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SemanticLabel.h; sourceTree = "<group>"; };
+		D4C1D405241E56D30038E922 /* SemanticLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SemanticLabel.m; sourceTree = "<group>"; };
+		D4F0BB142422116F00C80504 /* NSString+FullWordTruncated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FullWordTruncated.h"; sourceTree = "<group>"; };
+		D4F0BB152422116F00C80504 /* NSString+FullWordTruncated.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FullWordTruncated.m"; sourceTree = "<group>"; };
+		D4F0BB182422231500C80504 /* NSAttributedString+FullWordTruncated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+FullWordTruncated.h"; sourceTree = "<group>"; };
+		D4F0BB192422231500C80504 /* NSAttributedString+FullWordTruncated.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+FullWordTruncated.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +113,7 @@
 		D45A1258241E4EED00A8EC5B /* SemanticLabel */ = {
 			isa = PBXGroup;
 			children = (
+				D4F0BB0F242210C000C80504 /* Extensions */,
 				D45A1259241E4EED00A8EC5B /* AppDelegate.h */,
 				D45A125A241E4EED00A8EC5B /* AppDelegate.m */,
 				D45A125C241E4EED00A8EC5B /* SceneDelegate.h */,
@@ -111,6 +121,8 @@
 				D45A125F241E4EED00A8EC5B /* ViewController.h */,
 				D45A1260241E4EED00A8EC5B /* ViewController.m */,
 				D45A1262241E4EED00A8EC5B /* Main.storyboard */,
+				D4C1D404241E56D30038E922 /* SemanticLabel.h */,
+				D4C1D405241E56D30038E922 /* SemanticLabel.m */,
 				D45A1265241E4EED00A8EC5B /* Assets.xcassets */,
 				D45A1267241E4EED00A8EC5B /* LaunchScreen.storyboard */,
 				D45A126A241E4EED00A8EC5B /* Info.plist */,
@@ -135,6 +147,33 @@
 				D45A1282241E4EED00A8EC5B /* Info.plist */,
 			);
 			path = SemanticLabelUITests;
+			sourceTree = "<group>";
+		};
+		D4F0BB0F242210C000C80504 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D4F0BB172422230100C80504 /* NSAttributedString */,
+				D4F0BB10242210E600C80504 /* NSString */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D4F0BB10242210E600C80504 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				D4F0BB142422116F00C80504 /* NSString+FullWordTruncated.h */,
+				D4F0BB152422116F00C80504 /* NSString+FullWordTruncated.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		D4F0BB172422230100C80504 /* NSAttributedString */ = {
+			isa = PBXGroup;
+			children = (
+				D4F0BB182422231500C80504 /* NSAttributedString+FullWordTruncated.h */,
+				D4F0BB192422231500C80504 /* NSAttributedString+FullWordTruncated.m */,
+			);
+			path = NSAttributedString;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,8 +308,11 @@
 			files = (
 				D45A1261241E4EED00A8EC5B /* ViewController.m in Sources */,
 				D45A125B241E4EED00A8EC5B /* AppDelegate.m in Sources */,
+				D4C1D406241E56D30038E922 /* SemanticLabel.m in Sources */,
 				D45A126C241E4EED00A8EC5B /* main.m in Sources */,
 				D45A125E241E4EED00A8EC5B /* SceneDelegate.m in Sources */,
+				D4F0BB1A2422231500C80504 /* NSAttributedString+FullWordTruncated.m in Sources */,
+				D4F0BB162422116F00C80504 /* NSString+FullWordTruncated.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
