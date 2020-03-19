@@ -24,24 +24,37 @@
     
     self.label.numberOfLines = 1;
     self.label.lineBreakMode = NSLineBreakByTruncatingTail;
-    self.label.fullWordTruncated = true;
+    self.label.enabledWordTruncated = true;
+    self.label.textColor = UIColor.greenColor;
 }
 
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    // NSLog(@"");
+    
 }
 
 
 - (IBAction)buttonPrint:(id)sender {
-    // NSLog(@"label self.text: %@", self.label.text);
+    NSLog(@"print: %@", self.label.attributedText);
+    NSLog(@"print green color: %@", UIColor.greenColor);
+    [self.label setNeedsLayout];
+    [self.label layoutIfNeeded];
 }
 
 
 - (IBAction)buttonChangeText:(id)sender {
     self.label.text = self.textField.text;
     self.normalLabel.text = self.textField.text;
+}
+
+- (IBAction)didTapChangeFrameButton:(id)sender {
+    
+    CGSize newSize = CGSizeMake(100, 21);
+    CGRect newFrame = self.label.frame;
+    newFrame.size = newSize;
+    
+    self.label.frame = newFrame;
 }
 
 @end

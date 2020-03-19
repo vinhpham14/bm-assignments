@@ -12,6 +12,8 @@
 
 - (instancetype)stringThatFit:(CGSize)size numberOfLines:(NSUInteger)maxLine {
     
+    if (self.length == 0) return self;
+    
     CGFloat labelWidth = size.width;
     
     NSInteger line = 0;
@@ -20,9 +22,11 @@
     NSUInteger stopIndex = 0;
     NSUInteger insertDotsIndex = 0;
     
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\S+" options:0 error:nil];
+    NSString *pattern = @"(\\S+)|(\\s+)"; // All non-whitespaces characters OR all whitespaces.
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
     NSArray * matches = [regex matchesInString:self.string options:0 range:NSMakeRange(0, self.length)];
     
+    // Get width of triple dots
     NSDictionary *attributes = [self attributesAtIndex:self.length - 1 effectiveRange:0];
     NSAttributedString *tripleDots = [[NSAttributedString alloc] initWithString:@"..." attributes:attributes];
     CGFloat tripleDotsWidth = [tripleDots boundingRectWithSize:size options:0 context:nil].size.width;
@@ -33,33 +37,33 @@
         NSAttributedString *subString = [self attributedSubstringFromRange:NSMakeRange(stopIndex, length)];
         CGFloat subWidth = [subString boundingRectWithSize:CGSizeZero options:0 context:nil].size.width;
         
-        // Find valid index to add triple dots.
-        if (lineWidth + subWidth + tripleDotsWidth < labelWidth) {
-            insertDotsIndex = NSMaxRange(result.range);
-        }
-        
-        // Check if need new line.
-        if (lineWidth + subWidth > labelWidth) {
-            line += 1;
-            lineWidth = 0;
-        }
+        NSRange nonWhitespaceRange = [result rangeAtIndex:1];
+        if (!NSEqualRanges(nonWhitespaceRange, NSMakeRange(NSNotFound, 0))) {
+            // Find valid index to add triple dots.
+            if (lineWidth + subWidth + tripleDotsWidth < labelWidth) {
+                insertDotsIndex = NSMaxRange(nonWhitespaceRange);
+            }
             
-        // Update width.
-        lineWidth += subWidth;
+            // Check if need new line.
+            if (lineWidth + subWidth > labelWidth) {
+                line += 1;
+                lineWidth = 0;
+            }
+                
+            // Check for stop.
+            if (line == maxLine) break;
+        }
         
-        // Check for stop.
-        if (line == maxLine) break;
+        // Update loop.
+        lineWidth += subWidth;
         stopIndex = NSMaxRange(result.range);
     }
     
-    BOOL shouldAddTripleDots = [self.string rangeOfString:@"\\S+"
-                                                  options:NSRegularExpressionSearch
-                                                    range:NSMakeRange(stopIndex, self.length - stopIndex)].length != 0;
-    
+    BOOL shouldAddTripleDots = stopIndex != self.length;
     if (shouldAddTripleDots) stopIndex = insertDotsIndex;
     NSMutableAttributedString *temp = [self attributedSubstringFromRange:NSMakeRange(0, stopIndex)].mutableCopy;
     
-    [temp appendAttributedString: (shouldAddTripleDots ? tripleDots : nil)];
+    [temp appendAttributedString: (shouldAddTripleDots ? tripleDots : NSAttributedString.new)];
     return temp.copy;
 }
 

@@ -7,81 +7,85 @@
 //
 
 #import "SemanticLabel.h"
-#import "NSString+FullWordTruncated.h"
 #import "NSAttributedString+FullWordTruncated.h"
 
 
 @interface SemanticLabel ()
 
-@property (nonatomic, strong) NSString *fullText;
 @property (nonatomic, strong) NSAttributedString *fullAttributedText;
+@property (nonatomic, assign) BOOL shouldUpdateText;
 
 @end
 
 @implementation SemanticLabel
 
-@synthesize fullWordTruncated = _fullWordTruncated;
+@synthesize enabledWordTruncated = _enabledWordTruncated;
 
 #pragma mark - Custom Setters, Setters
 
-- (BOOL)isFullWordTruncated {
-    return _fullWordTruncated;
+- (BOOL)isEnabledWordTruncated {
+    return _enabledWordTruncated;
 }
 
-- (void)setFullWordTruncated:(BOOL)fullWordTruncated {
-    _fullWordTruncated = fullWordTruncated;
-    self.text = self.fullText;
-}
 
+- (void)setEnabledWordTruncated:(BOOL)fullWordTruncated {
+    _enabledWordTruncated = fullWordTruncated;
+    self.text = self.fullAttributedText.string;
+}
 
 #pragma mark - Overrided Methods
 
 - (void)setText:(NSString *)text {
-    self.fullText = text;
-    if (self.fullWordTruncated) {
-        text = [text stringThatFit:self.bounds.size
-                     numberOfLines:self.numberOfLines
-                        attributes:@{NSFontAttributeName : self.font}];
-    }
     [super setText:text];
+    self.fullAttributedText = [super attributedText];
+    
+    [self truncateByWord];
 }
 
 
 - (NSString *)text {
-    return self.fullText;
+    return [super text];
 }
 
 
 - (void)setAttributedText:(NSAttributedString *)attributedText {
-    self.fullAttributedText = attributedText;
-    if (self.fullWordTruncated) {
-        attributedText = [attributedText stringThatFit:self.bounds.size
-                                         numberOfLines:self.numberOfLines];
-    }
     [super setAttributedText:attributedText];
+    self.fullAttributedText = [super attributedText];
+    
+    [self truncateByWord];
 }
 
 
 - (NSAttributedString *)attributedText {
-    return self.fullAttributedText;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
+    return [super attributedText];
 }
 
 
 - (void)setBounds:(CGRect)bounds {
     [super setBounds:bounds];
+    
+    [super setAttributedText:self.fullAttributedText];
+    [self truncateByWord];
 }
 
 
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
+    
+    [super setAttributedText:self.fullAttributedText];
+    [self truncateByWord];
 }
 
 
 #pragma mark - Private methods
 
+- (void)truncateByWord {
+    if (self.isEnabledWordTruncated) {
+        CGSize expectedSize = [self systemLayoutSizeFittingSize:UILayoutFittingExpandedSize];
+        NSAttributedString *attText = [self.fullAttributedText stringThatFit:expectedSize
+                                                               numberOfLines:self.numberOfLines];
+        [super setAttributedText:attText];
+    }
+}
 
 @end
