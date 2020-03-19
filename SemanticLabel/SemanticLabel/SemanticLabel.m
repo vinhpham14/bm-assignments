@@ -39,7 +39,7 @@
     [super setText:text];
     self.fullAttributedText = [super attributedText];
     
-    [self truncateByWord];
+    if (self.isEnabledWordTruncated) [self truncateByWord];
 }
 
 
@@ -52,7 +52,7 @@
     [super setAttributedText:attributedText];
     self.fullAttributedText = [super attributedText];
     
-    [self truncateByWord];
+    if (self.isEnabledWordTruncated) [self truncateByWord];
 }
 
 
@@ -65,7 +65,7 @@
     [super setBounds:bounds];
     
     [super setAttributedText:self.fullAttributedText];
-    [self truncateByWord];
+    if (self.isEnabledWordTruncated) [self truncateByWord];
 }
 
 
@@ -73,19 +73,18 @@
     [super setFrame:frame];
     
     [super setAttributedText:self.fullAttributedText];
-    [self truncateByWord];
+    if (self.isEnabledWordTruncated) [self truncateByWord];
 }
 
 
 #pragma mark - Private methods
 
 - (void)truncateByWord {
-    if (self.isEnabledWordTruncated) {
-        CGSize expectedSize = [self systemLayoutSizeFittingSize:UILayoutFittingExpandedSize];
-        NSAttributedString *attText = [self.fullAttributedText stringThatFit:expectedSize
-                                                               numberOfLines:self.numberOfLines];
-        [super setAttributedText:attText];
-    }
+    // Handle self-sizing with autolayout.
+    CGSize fitInSize = self.constraints.count > 0 ? [self systemLayoutSizeFittingSize:UILayoutFittingExpandedSize] : self.bounds.size;
+    NSAttributedString *attText = [self.fullAttributedText stringThatFit:fitInSize
+                                                           numberOfLines:self.numberOfLines];
+    [super setAttributedText:attText];
 }
 
 @end
