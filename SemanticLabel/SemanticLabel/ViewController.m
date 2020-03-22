@@ -22,10 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.label.numberOfLines = 1;
+    self.label.numberOfLines = 20;
     self.label.lineBreakMode = NSLineBreakByTruncatingTail;
     self.label.enabledWordTruncated = true;
     self.label.textColor = UIColor.greenColor;
+    self.label.text = @"longtext longtext\nlongtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext ";
 }
 
 
@@ -36,10 +37,8 @@
 
 
 - (IBAction)buttonPrint:(id)sender {
-    NSLog(@"print: %@", self.label.attributedText);
-    NSLog(@"print green color: %@", UIColor.greenColor);
-    [self.label setNeedsLayout];
-    [self.label layoutIfNeeded];
+    // NSLog(@"print: %@", self.label.attributedText);
+    NSLog(@"print: %@", NSStringFromCGSize(self.label.intrinsicContentSize));
 }
 
 

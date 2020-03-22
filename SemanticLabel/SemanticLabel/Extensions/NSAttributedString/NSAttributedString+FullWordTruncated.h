@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSAttributedString (FullWordTruncated)
 
-- (instancetype)stringThatFit:(CGSize)size numberOfLines:(NSUInteger)maxLine;
+- (instancetype)stringThatFit:(CGSize)size expectedNumberOfLines:(NSUInteger)expectedNumberOfLines actualNumberOfLines:(NSUInteger * __nullable)actualNumberOfLines;
 
 @end
 

@@ -16,6 +16,7 @@
 		D45A126C241E4EED00A8EC5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D45A126B241E4EED00A8EC5B /* main.m */; };
 		D45A1276241E4EED00A8EC5B /* SemanticLabelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D45A1275241E4EED00A8EC5B /* SemanticLabelTests.m */; };
 		D45A1281241E4EED00A8EC5B /* SemanticLabelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D45A1280241E4EED00A8EC5B /* SemanticLabelUITests.m */; };
+		D4BE348A2427CADB0079E17C /* NSString+FullWordTruncated.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BE34892427CADB0079E17C /* NSString+FullWordTruncated.m */; };
 		D4C1D406241E56D30038E922 /* SemanticLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C1D405241E56D30038E922 /* SemanticLabel.m */; };
 		D4F0BB1A2422231500C80504 /* NSAttributedString+FullWordTruncated.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F0BB192422231500C80504 /* NSAttributedString+FullWordTruncated.m */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,8 @@
 		D45A127C241E4EED00A8EC5B /* SemanticLabelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SemanticLabelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45A1280241E4EED00A8EC5B /* SemanticLabelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SemanticLabelUITests.m; sourceTree = "<group>"; };
 		D45A1282241E4EED00A8EC5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4BE34882427CADB0079E17C /* NSString+FullWordTruncated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FullWordTruncated.h"; sourceTree = "<group>"; };
+		D4BE34892427CADB0079E17C /* NSString+FullWordTruncated.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FullWordTruncated.m"; sourceTree = "<group>"; };
 		D4C1D404241E56D30038E922 /* SemanticLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SemanticLabel.h; sourceTree = "<group>"; };
 		D4C1D405241E56D30038E922 /* SemanticLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SemanticLabel.m; sourceTree = "<group>"; };
 		D4F0BB182422231500C80504 /* NSAttributedString+FullWordTruncated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+FullWordTruncated.h"; sourceTree = "<group>"; };
@@ -146,9 +149,19 @@
 			path = SemanticLabelUITests;
 			sourceTree = "<group>";
 		};
+		D4BE34872427CAC00079E17C /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				D4BE34882427CADB0079E17C /* NSString+FullWordTruncated.h */,
+				D4BE34892427CADB0079E17C /* NSString+FullWordTruncated.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
 		D4F0BB0F242210C000C80504 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D4BE34872427CAC00079E17C /* NSString */,
 				D4F0BB172422230100C80504 /* NSAttributedString */,
 			);
 			path = Extensions;
@@ -296,6 +309,7 @@
 				D45A1261241E4EED00A8EC5B /* ViewController.m in Sources */,
 				D45A125B241E4EED00A8EC5B /* AppDelegate.m in Sources */,
 				D4C1D406241E56D30038E922 /* SemanticLabel.m in Sources */,
+				D4BE348A2427CADB0079E17C /* NSString+FullWordTruncated.m in Sources */,
 				D45A126C241E4EED00A8EC5B /* main.m in Sources */,
 				D45A125E241E4EED00A8EC5B /* SceneDelegate.m in Sources */,
 				D4F0BB1A2422231500C80504 /* NSAttributedString+FullWordTruncated.m in Sources */,

@@ -13,7 +13,6 @@
 @interface SemanticLabel ()
 
 @property (nonatomic, strong) NSAttributedString *fullAttributedText;
-@property (nonatomic, assign) BOOL shouldUpdateText;
 
 @end
 
@@ -38,7 +37,6 @@
 - (void)setText:(NSString *)text {
     [super setText:text];
     self.fullAttributedText = [super attributedText];
-    
     if (self.isEnabledWordTruncated) [self truncateByWord];
 }
 
@@ -51,7 +49,6 @@
 - (void)setAttributedText:(NSAttributedString *)attributedText {
     [super setAttributedText:attributedText];
     self.fullAttributedText = [super attributedText];
-    
     if (self.isEnabledWordTruncated) [self truncateByWord];
 }
 
@@ -63,27 +60,23 @@
 
 - (void)setBounds:(CGRect)bounds {
     [super setBounds:bounds];
-    
-    [super setAttributedText:self.fullAttributedText];
     if (self.isEnabledWordTruncated) [self truncateByWord];
 }
 
 
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
-    
-    [super setAttributedText:self.fullAttributedText];
     if (self.isEnabledWordTruncated) [self truncateByWord];
 }
-
 
 #pragma mark - Private methods
 
 - (void)truncateByWord {
+    
     // Handle self-sizing with autolayout.
+    [super setAttributedText:self.fullAttributedText];
     CGSize fitInSize = self.constraints.count > 0 ? [self systemLayoutSizeFittingSize:UILayoutFittingExpandedSize] : self.bounds.size;
-    NSAttributedString *attText = [self.fullAttributedText stringThatFit:fitInSize
-                                                           numberOfLines:self.numberOfLines];
+    NSAttributedString *attText = [self.fullAttributedText stringThatFit:fitInSize expectedNumberOfLines:self.numberOfLines actualNumberOfLines:nil];
     [super setAttributedText:attText];
 }
 
