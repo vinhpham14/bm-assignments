@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:PaddingLabel/PaddingLabel.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:SemanticLabel/SemanticLabel.xcodeproj">
    </FileRef>
    <FileRef

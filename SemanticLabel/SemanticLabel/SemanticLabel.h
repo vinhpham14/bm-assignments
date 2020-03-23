@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+
 @interface SemanticLabel : UILabel
 
 @property (nonatomic, assign, getter=isEnabledWordTruncated) BOOL enabledWordTruncated;

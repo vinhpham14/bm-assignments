@@ -41,11 +41,6 @@
 }
 
 
-- (NSString *)text {
-    return [super text];
-}
-
-
 - (void)setAttributedText:(NSAttributedString *)attributedText {
     [super setAttributedText:attributedText];
     self.fullAttributedText = [super attributedText];
@@ -53,14 +48,13 @@
 }
 
 
-- (NSAttributedString *)attributedText {
-    return [super attributedText];
+- (NSString *)text {
+    return self.fullAttributedText.string;
 }
 
 
-- (void)setBounds:(CGRect)bounds {
-    [super setBounds:bounds];
-    if (self.isEnabledWordTruncated) [self truncateByWord];
+- (NSAttributedString *)attributedText {
+    return self.fullAttributedText;
 }
 
 
@@ -76,6 +70,7 @@
     // Handle self-sizing with autolayout.
     [super setAttributedText:self.fullAttributedText];
     CGSize fitInSize = self.constraints.count > 0 ? [self systemLayoutSizeFittingSize:UILayoutFittingExpandedSize] : self.bounds.size;
+    
     NSAttributedString *attText = [self.fullAttributedText stringThatFit:fitInSize expectedNumberOfLines:self.numberOfLines actualNumberOfLines:nil];
     [super setAttributedText:attText];
 }

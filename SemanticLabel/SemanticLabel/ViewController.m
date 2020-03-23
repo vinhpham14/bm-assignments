@@ -8,12 +8,16 @@
 
 #import "ViewController.h"
 #import "SemanticLabel.h"
+#import "NSAttributedString+FullWordTruncated.h"
+#import "PaddingLabel.h"
 
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet SemanticLabel *label;
 @property (weak, nonatomic) IBOutlet UILabel *normalLabel;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet PaddingLabel *paddingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sampleLabel;
 
 @end
 
@@ -27,6 +31,15 @@
     self.label.enabledWordTruncated = true;
     self.label.textColor = UIColor.greenColor;
     self.label.text = @"longtext longtext\nlongtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext longtext ";
+    
+    
+    // ============
+    self.paddingLabel.textInsets = UIEdgeInsetsMake(10, 10, 10, 20);
+    self.paddingLabel.numberOfLines = 0;
+    self.paddingLabel.text = @"text";
+    // [self.paddingLabel sizeToFit];
+    
+    self.sampleLabel.numberOfLines = 0;
 }
 
 
@@ -37,14 +50,19 @@
 
 
 - (IBAction)buttonPrint:(id)sender {
-    // NSLog(@"print: %@", self.label.attributedText);
-    NSLog(@"print: %@", NSStringFromCGSize(self.label.intrinsicContentSize));
+    // NSAttributedString *newString = [[NSAttributedString alloc] initWithString:@"asdf"];
+    // NSLog(@"%@", newString);
+    // [newString stringThatFit:CGSizeMake(40, 50) expectedNumberOfLines:4 actualNumberOfLines:nil];
+    // self.paddingLabel.textInsets = UIEdgeInsetsMake(50, 10, 10, 20);
+    [self.paddingLabel sizeToFit];
 }
 
 
 - (IBAction)buttonChangeText:(id)sender {
     self.label.text = self.textField.text;
     self.normalLabel.text = self.textField.text;
+    self.paddingLabel.text = self.textField.text;
+    self.sampleLabel.text= self.textField.text;
 }
 
 - (IBAction)didTapChangeFrameButton:(id)sender {
