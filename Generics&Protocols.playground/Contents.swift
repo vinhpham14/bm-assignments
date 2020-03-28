@@ -63,5 +63,3 @@ class Product {
     var color: Color = .black
     var size: Size = .big
 }
-
-extension Product: Colored, Sized { }

@@ -1,67 +1,52 @@
 import UIKit
 import CoreData
 
-/*
-
-protocol EntityProtocol {
-    associatedtype T
-    init()
+protocol EntityProtocol { }
+protocol RepositoryProtocol {
+    associatedtype E: EntityProtocol
+    func create() -> E
+    // func update(item: E)
 }
 
-protocol DBService {
-    associatedtype T
-    func write<Entity: EntityProtocol>(item: Entity) where Entity.T == T
-    func read<Entity: EntityProtocol>() -> Entity where Entity.T == T
+class CoreDataEntity: NSManagedObject, EntityProtocol { }
+class CoreDataRepository<E: CoreDataEntity>: RepositoryProtocol {
+    func create() -> E {
+        fatalError()
+    }
+//    func update(item: E) {
+//        fatalError()
+//    }
 }
 
-final class CoreDataEntity: EntityProtocol {
-    typealias T = NSManagedObject
-    init() { }
+
+class CustomDataEntity: NSManagedObject, EntityProtocol { }
+class CustomDataRepository<E: CustomDataEntity>: RepositoryProtocol {
+    func create() -> E {
+        fatalError()
+    }
+//    func update(item: E) {
+//        fatalError()
+//    }
 }
 
-final class CoreDataService: DBService {
+class AnyEntity: EntityProtocol { }
+class AnyRepository<E: EntityProtocol>: RepositoryProtocol {
     
-    typealias T = NSManagedObject
+    private let _create: () -> E
     
-    func read<Entity: EntityProtocol>() -> Entity where T == Entity.T {
-        return Entity()
+    func create() -> E {
+        _create()
     }
     
-    func write<Entity: EntityProtocol>(item: Entity) where T == Entity.T {
-        // write
+    init<T: RepositoryProtocol>(_ base: T) where T.E == E {
+        _create = base.create
     }
     
 }
-*/
 
-// =======
-
-protocol EntityProtocol {
-    
+// Service
+class UserEntity: EntityProtocol { }
+class UserService {
+    // var repo: AnyRepository<UserEntity>! = CoreDataRepository<AnyEntity>()
+    var repo: AnyRepository<UserEntity>! = AnyRepository(CoreDataRepository<UserEntity>) //CoreDataRepository<>
 }
-
-protocol DBService {
-    associatedtype EntityType where EntityType == EntityProtocol
-    func read() -> EntityType
-    func write(item: EntityType)
-}
-
-class CoreDataEntity: EntityProtocol { }
-
-class CoreDataService<T: EntityProtocol>: DBService {
-    typealias EntityType = T
-}
-
-//class CoreDataService: DBService {
-//    typealias EntityType = CoreDataEntity
-//
-//    func write(item: EntityType) {
-//
-//    }
-//
-//    func read() -> EntityType {
-//        return EntityType()
-//    }
-//}
-
-
